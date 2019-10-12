@@ -1,0 +1,92 @@
+<html>
+<head><title>Your board</title>
+  <style type="text/css">
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f2f2f2;
+  opacity: 0.6;
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+  #main{
+    /* position: absolute; */
+    display: inline;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 10px;
+
+
+  }
+
+    #add{
+    position: absolute;
+    top: 20;
+    right: 20;
+
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    #edit, #delete {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      }
+
+      #view1 {
+      width: 800px; /* Full width */
+      padding: 12px; /* Some padding */
+      border: 1px solid #ccc; /* Gray border */
+      border-radius: 4px; /* Rounded borders */
+      box-sizing: border-box; /* Make sure that padding and width stays in place */
+      margin-top: 6px; /* Add a top margin */
+      margin-bottom: 16px; /* Bottom margin */
+      resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+      }
+
+    body{
+      font-family: "Lucida Console";
+      background-image: url('images/img3.jpg');
+      background-size: cover;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>See your memories till now...</h1>
+
+  <div id='first' class="journal">
+    <a href="/add" ><button id="add" type="submit">Add new memory to the journal </button></a><br>
+  </div>
+  <div class="container">
+  <div id="main">
+    <% journals.forEach(function(journal, i){ %>
+    <textarea id="view" rows="1" cols="70" name="title">
+    <%= journal.title %>
+    </textarea><br><br>
+
+    <textarea id="view" rows="10" cols="70" name="journal">
+     <%= journal.journal %>
+     </textarea><br><br>
+     <button id="edit" type="submit" onclick="window.location.href='/edit/<%= journal._id %>'">Edit </button>
+      <button id="delete" type="submit" onclick="window.location.href='/delete/<%= journal._id%>'">Delete </button><br><br><br>
+      <% }) %>
+  </div>
+  </div>
+
+
+
+</body>
+</html>

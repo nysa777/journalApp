@@ -1,0 +1,65 @@
+<html>
+<head><title>Edit page</title>
+  <style type="text/css">
+    body{
+      font-family: "Lucida Console";
+      background-image: url('../images/img3.jpg');
+      background-size: cover;
+    }
+
+    .journal{
+      position: fixed;
+      left: 20%;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #f2f2f2;
+      opacity: 0.6;
+      padding: 20px;
+      width: 60%;
+      height:400px;
+    }
+
+    #first{
+      text-align: center;
+    }
+
+    #id {
+    width: 800px; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    #submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+  <br><br>
+
+  <div id="first">
+    <h1>Edit your memory</h1><br><br><br>
+  </div>
+  <div class="journal">
+    <form method="post" action="/edit">
+    <input type="hidden" name="_id" value="<%= journal._id %>">
+    <textarea id="id" rows="1" cols="70" name="title"> <%= journal.title %> </textarea><br><br>
+    <textarea id="id" rows="10" cols="70" name="journal"> <%= journal.journal %> </textarea><br><br>
+    <button id="submit" type="submit">Edit </button>
+  </form>
+  </div>
+
+
+</body>
+</html>
